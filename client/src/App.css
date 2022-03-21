@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.stars {
+  color: #ffc107;
+}
+
+.plus {
+  color: #28a745;
+}
+
+.minus {
+  color: #dc3545;
+}
+
+.button {
+  background-color: white;
+  border: none;
+  /* color: white; */
+  padding: 0px;
+  text-align: center;
+  /* text-decoration: none; */
+  /* display: inline-block; */
+  font-size: 1em;
+  /* margin: 4px 2px; */
+  border-radius: 50%;
+  cursor: pointer;
+}
