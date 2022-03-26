@@ -13,14 +13,15 @@ Full Stack application with a React front end with node API backend to JSON data
 ## Installation
 
 ```sh
- cd reward-chart/client
- npm install
- cd ../api
- npm install
+git clone https://github.com/mattbryce/reward-chart.git
+cd reward-chart/client
+npm install
+cd ../api
+npm install
 ```
 ## API Driven Data Usage Example
 
-There is a maximum of 10 stars to award. Star value will not go into negative. Optionally Stars reset to zero every Monday @ 00:00. (This only applies to the default API data)
+There is a maximum of 10 stars to award. Star value will not go into negative. Optionally, stars reset to zero every Monday @ 00:00. (This only applies to the default API data)
 
 This is achieved via node-schedule using a [Recurrence Rule](https://www.npmjs.com/package/node-schedule) and can be easily enabled or schedule changed by adjusting as below.
 
@@ -57,10 +58,10 @@ The API can be tested by going to http://HOSTNAME:9000/user/list which should re
 ```json
 [
     {
-    "name":"Child 2",
+    "name":"Child2",
     "stars":5},
     {
-    "name":"Child 1",
+    "name":"Child1",
     "stars":3
     }
 ]
@@ -72,10 +73,13 @@ The values can ammended manually via the JSON file at:
 
 It is also possible to use something like Postman to update, add or delete users via the API. In a future update this will be possible via the client.
 
-Content should in in RAW body
+Content should in RAW body
 
 ### List Users - GET Method
 http://HOSTNAME:9000/user/list
+
+### Return Single User - GET Method
+http://HOSTNAME:9000/user/USER
 
 ### Add User - POST Method
 http://HOSTNAME:9000/user/add

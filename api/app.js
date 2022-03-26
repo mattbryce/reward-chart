@@ -45,6 +45,23 @@ app.get('/user/list', (req, res) => {
     res.send(users)
 })
 
+/* Read Single user - GET method */
+app.get('/user/:name', (req, res) => {
+
+    const name = req.params.name
+    const existUsers = getUserData()
+    
+    //check if the name exist or not  
+    const findExist = existUsers.find( user => user.name === name )
+    if (!findExist) {
+        return res.status(409).send({error: true, msg: 'name not exist'})
+    }
+    // Filter to just the named user.
+    const filterUser = existUsers.filter( user => user.name == name )
+    
+    res.send( JSON.stringify(filterUser));
+ });
+
 /* Update - put method */
 app.put('/user/update/:name', (req, res) => {
     //get the name from url
@@ -154,6 +171,11 @@ const saveUserData = (data) => {
 
 //get the user data from json file
 const getUserData = () => {
+    const jsonData = fs.readFileSync('data.json')
+    return JSON.parse(jsonData)    
+}
+//get the single user data from json file
+const getSingleUserData = () => {
     const jsonData = fs.readFileSync('data.json')
     return JSON.parse(jsonData)    
 }
